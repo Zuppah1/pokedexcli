@@ -35,7 +35,8 @@ func TestCleanInput(t *testing.T) {
 	for _, c := range cases {
 		actual := cleanInput(c.input)
 		if len(actual) != len(c.expected) {
-			t.Errorf("slice length incorrect")
+			t.Errorf("lengths don't match: '%v' vs '%v'", actual, c.expected)
+			continue
 		}
 
 		for i := range actual {
@@ -44,7 +45,7 @@ func TestCleanInput(t *testing.T) {
 			expectedWord := c.expected[i]
 
 			if expectedWord != word {
-				t.Errorf("words do not match to expected values")
+				t.Errorf("cleanInput(%v) == %v, expected %v", c.input, actual, c.expected)
 			}
 		}
 	}
