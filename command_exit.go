@@ -7,6 +7,8 @@ import (
 
 func commandExit(cfg *config, args ...string) error {
 	fmt.Print("Closing the Pokedex... Goodbye!")
+	fmt.Println()
+
 	os.Exit(0)
 
 	return nil
